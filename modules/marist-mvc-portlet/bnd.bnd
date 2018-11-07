@@ -1,0 +1,4 @@
+Bundle-Name: marist-mvc-portlet
+Bundle-SymbolicName: marist.mvc.portlet
+Bundle-Version: 1.0.0
+Export-Package: marist.mvc.portlet.constants

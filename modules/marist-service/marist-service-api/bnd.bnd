@@ -1,0 +1,9 @@
+Bundle-Name: marist-service-api
+Bundle-SymbolicName: marist.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	marist.service.exception,\
+	marist.service.model,\
+	marist.service.service,\
+	marist.service.service.persistence
+-includeresource: META-INF/service.xml=../marist-service-service/service.xml
