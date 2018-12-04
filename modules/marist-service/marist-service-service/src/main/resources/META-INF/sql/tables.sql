@@ -1,15 +1,16 @@
-create table FOO_Foo (
+create table Marist_Server (
 	uuid_ VARCHAR(75) null,
-	fooId LONG not null primary key,
+	serverId LONG not null primary key,
 	groupId LONG,
 	companyId LONG,
 	userId LONG,
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
-	field1 VARCHAR(75) null,
-	field2 BOOLEAN,
-	field3 INTEGER,
-	field4 DATE null,
-	field5 VARCHAR(75) null
+	distribution VARCHAR(75) null,
+	version VARCHAR(75) null,
+	vpn BOOLEAN,
+	memory INTEGER,
+	disk INTEGER,
+	cpu VARCHAR(75) null
 );

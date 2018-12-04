@@ -26,28 +26,28 @@ import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Transactional;
 
 /**
- * Provides the remote service interface for Foo. Methods of this
+ * Provides the remote service interface for Server. Methods of this
  * service are expected to have security checks based on the propagated JAAS
  * credentials because this service can be accessed remotely.
  *
  * @author Brian Wing Shun Chan
- * @see FooServiceUtil
- * @see marist.service.service.base.FooServiceBaseImpl
- * @see marist.service.service.impl.FooServiceImpl
+ * @see ServerServiceUtil
+ * @see marist.service.service.base.ServerServiceBaseImpl
+ * @see marist.service.service.impl.ServerServiceImpl
  * @generated
  */
 @AccessControlled
 @JSONWebService
 @OSGiBeanProperties(property =  {
-	"json.web.service.context.name=foo", "json.web.service.context.path=Foo"}, service = FooService.class)
+	"json.web.service.context.name=marist", "json.web.service.context.path=Server"}, service = ServerService.class)
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
-public interface FooService extends BaseService {
+public interface ServerService extends BaseService {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link FooServiceUtil} to access the foo remote service. Add custom service methods to {@link marist.service.service.impl.FooServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify or reference this interface directly. Always use {@link ServerServiceUtil} to access the server remote service. Add custom service methods to {@link marist.service.service.impl.ServerServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
 
 	/**

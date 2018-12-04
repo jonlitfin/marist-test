@@ -18,7 +18,7 @@ import aQute.bnd.annotation.ProviderType;
 
 /**
  * Provides the HTTP utility for the
- * {@link marist.service.service.FooServiceUtil} service utility. The
+ * {@link marist.service.service.ServerServiceUtil} service utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
  * {@link com.liferay.portal.kernel.security.auth.HttpPrincipal} parameter.
@@ -39,11 +39,11 @@ import aQute.bnd.annotation.ProviderType;
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see FooServiceSoap
+ * @see ServerServiceSoap
  * @see com.liferay.portal.kernel.security.auth.HttpPrincipal
- * @see marist.service.service.FooServiceUtil
+ * @see marist.service.service.ServerServiceUtil
  * @generated
  */
 @ProviderType
-public class FooServiceHttp {
+public class ServerServiceHttp {
 }

@@ -18,7 +18,7 @@ import aQute.bnd.annotation.ProviderType;
 
 /**
  * Provides the SOAP utility for the
- * {@link marist.service.service.FooServiceUtil} service utility. The
+ * {@link marist.service.service.ServerServiceUtil} service utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it is difficult for SOAP to
  * support certain types.
@@ -26,10 +26,10 @@ import aQute.bnd.annotation.ProviderType;
  * <p>
  * ServiceBuilder follows certain rules in translating the methods. For example,
  * if the method in the service utility returns a {@link java.util.List}, that
- * is translated to an array of {@link marist.service.model.FooSoap}.
+ * is translated to an array of {@link marist.service.model.ServerSoap}.
  * If the method in the service utility returns a
- * {@link marist.service.model.Foo}, that is translated to a
- * {@link marist.service.model.FooSoap}. Methods that SOAP cannot
+ * {@link marist.service.model.Server}, that is translated to a
+ * {@link marist.service.model.ServerSoap}. Methods that SOAP cannot
  * safely wire are skipped.
  * </p>
  *
@@ -51,11 +51,11 @@ import aQute.bnd.annotation.ProviderType;
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see FooServiceHttp
- * @see marist.service.model.FooSoap
- * @see marist.service.service.FooServiceUtil
+ * @see ServerServiceHttp
+ * @see marist.service.model.ServerSoap
+ * @see marist.service.service.ServerServiceUtil
  * @generated
  */
 @ProviderType
-public class FooServiceSoap {
+public class ServerServiceSoap {
 }

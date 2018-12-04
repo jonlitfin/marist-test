@@ -14,26 +14,26 @@
 
 package marist.service.service.impl;
 
-import marist.service.service.base.FooLocalServiceBaseImpl;
+import marist.service.service.base.ServerLocalServiceBaseImpl;
 
 /**
- * The implementation of the foo local service.
+ * The implementation of the server local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link marist.service.service.FooLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link marist.service.service.ServerLocalService} interface.
  *
  * <p>
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see FooLocalServiceBaseImpl
- * @see marist.service.service.FooLocalServiceUtil
+ * @see ServerLocalServiceBaseImpl
+ * @see marist.service.service.ServerLocalServiceUtil
  */
-public class FooLocalServiceImpl extends FooLocalServiceBaseImpl {
+public class ServerLocalServiceImpl extends ServerLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link marist.service.service.FooLocalServiceUtil} to access the foo local service.
+	 * Never reference this class directly. Always use {@link marist.service.service.ServerLocalServiceUtil} to access the server local service.
 	 */
 }

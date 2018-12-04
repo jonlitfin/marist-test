@@ -20,7 +20,7 @@ import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 
-import marist.service.model.Foo;
+import marist.service.model.Server;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -30,27 +30,27 @@ import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
- * The cache model class for representing Foo in entity cache.
+ * The cache model class for representing Server in entity cache.
  *
  * @author Brian Wing Shun Chan
- * @see Foo
+ * @see Server
  * @generated
  */
 @ProviderType
-public class FooCacheModel implements CacheModel<Foo>, Externalizable {
+public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
 
-		if (!(obj instanceof FooCacheModel)) {
+		if (!(obj instanceof ServerCacheModel)) {
 			return false;
 		}
 
-		FooCacheModel fooCacheModel = (FooCacheModel)obj;
+		ServerCacheModel serverCacheModel = (ServerCacheModel)obj;
 
-		if (fooId == fooCacheModel.fooId) {
+		if (serverId == serverCacheModel.serverId) {
 			return true;
 		}
 
@@ -59,17 +59,17 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 
 	@Override
 	public int hashCode() {
-		return HashUtil.hash(0, fooId);
+		return HashUtil.hash(0, serverId);
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
-		sb.append(", fooId=");
-		sb.append(fooId);
+		sb.append(", serverId=");
+		sb.append(serverId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -82,92 +82,95 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
-		sb.append(", field1=");
-		sb.append(field1);
-		sb.append(", field2=");
-		sb.append(field2);
-		sb.append(", field3=");
-		sb.append(field3);
-		sb.append(", field4=");
-		sb.append(field4);
-		sb.append(", field5=");
-		sb.append(field5);
+		sb.append(", distribution=");
+		sb.append(distribution);
+		sb.append(", version=");
+		sb.append(version);
+		sb.append(", vpn=");
+		sb.append(vpn);
+		sb.append(", memory=");
+		sb.append(memory);
+		sb.append(", disk=");
+		sb.append(disk);
+		sb.append(", cpu=");
+		sb.append(cpu);
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	@Override
-	public Foo toEntityModel() {
-		FooImpl fooImpl = new FooImpl();
+	public Server toEntityModel() {
+		ServerImpl serverImpl = new ServerImpl();
 
 		if (uuid == null) {
-			fooImpl.setUuid("");
+			serverImpl.setUuid("");
 		}
 		else {
-			fooImpl.setUuid(uuid);
+			serverImpl.setUuid(uuid);
 		}
 
-		fooImpl.setFooId(fooId);
-		fooImpl.setGroupId(groupId);
-		fooImpl.setCompanyId(companyId);
-		fooImpl.setUserId(userId);
+		serverImpl.setServerId(serverId);
+		serverImpl.setGroupId(groupId);
+		serverImpl.setCompanyId(companyId);
+		serverImpl.setUserId(userId);
 
 		if (userName == null) {
-			fooImpl.setUserName("");
+			serverImpl.setUserName("");
 		}
 		else {
-			fooImpl.setUserName(userName);
+			serverImpl.setUserName(userName);
 		}
 
 		if (createDate == Long.MIN_VALUE) {
-			fooImpl.setCreateDate(null);
+			serverImpl.setCreateDate(null);
 		}
 		else {
-			fooImpl.setCreateDate(new Date(createDate));
+			serverImpl.setCreateDate(new Date(createDate));
 		}
 
 		if (modifiedDate == Long.MIN_VALUE) {
-			fooImpl.setModifiedDate(null);
+			serverImpl.setModifiedDate(null);
 		}
 		else {
-			fooImpl.setModifiedDate(new Date(modifiedDate));
+			serverImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		if (field1 == null) {
-			fooImpl.setField1("");
+		if (distribution == null) {
+			serverImpl.setDistribution("");
 		}
 		else {
-			fooImpl.setField1(field1);
+			serverImpl.setDistribution(distribution);
 		}
 
-		fooImpl.setField2(field2);
-		fooImpl.setField3(field3);
-
-		if (field4 == Long.MIN_VALUE) {
-			fooImpl.setField4(null);
+		if (version == null) {
+			serverImpl.setVersion("");
 		}
 		else {
-			fooImpl.setField4(new Date(field4));
+			serverImpl.setVersion(version);
 		}
 
-		if (field5 == null) {
-			fooImpl.setField5("");
+		serverImpl.setVpn(vpn);
+		serverImpl.setMemory(memory);
+		serverImpl.setDisk(disk);
+
+		if (cpu == null) {
+			serverImpl.setCpu("");
 		}
 		else {
-			fooImpl.setField5(field5);
+			serverImpl.setCpu(cpu);
 		}
 
-		fooImpl.resetOriginalValues();
+		serverImpl.resetOriginalValues();
 
-		return fooImpl;
+		return serverImpl;
 	}
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		uuid = objectInput.readUTF();
 
-		fooId = objectInput.readLong();
+		serverId = objectInput.readLong();
 
 		groupId = objectInput.readLong();
 
@@ -177,13 +180,15 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		field1 = objectInput.readUTF();
+		distribution = objectInput.readUTF();
+		version = objectInput.readUTF();
 
-		field2 = objectInput.readBoolean();
+		vpn = objectInput.readBoolean();
 
-		field3 = objectInput.readInt();
-		field4 = objectInput.readLong();
-		field5 = objectInput.readUTF();
+		memory = objectInput.readInt();
+
+		disk = objectInput.readInt();
+		cpu = objectInput.readUTF();
 	}
 
 	@Override
@@ -196,7 +201,7 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 			objectOutput.writeUTF(uuid);
 		}
 
-		objectOutput.writeLong(fooId);
+		objectOutput.writeLong(serverId);
 
 		objectOutput.writeLong(groupId);
 
@@ -214,37 +219,46 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
-		if (field1 == null) {
+		if (distribution == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
-			objectOutput.writeUTF(field1);
+			objectOutput.writeUTF(distribution);
 		}
 
-		objectOutput.writeBoolean(field2);
-
-		objectOutput.writeInt(field3);
-		objectOutput.writeLong(field4);
-
-		if (field5 == null) {
+		if (version == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
-			objectOutput.writeUTF(field5);
+			objectOutput.writeUTF(version);
+		}
+
+		objectOutput.writeBoolean(vpn);
+
+		objectOutput.writeInt(memory);
+
+		objectOutput.writeInt(disk);
+
+		if (cpu == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(cpu);
 		}
 	}
 
 	public String uuid;
-	public long fooId;
+	public long serverId;
 	public long groupId;
 	public long companyId;
 	public long userId;
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
-	public String field1;
-	public boolean field2;
-	public int field3;
-	public long field4;
-	public String field5;
+	public String distribution;
+	public String version;
+	public boolean vpn;
+	public int memory;
+	public int disk;
+	public String cpu;
 }

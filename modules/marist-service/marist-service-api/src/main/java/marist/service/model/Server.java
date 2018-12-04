@@ -21,26 +21,26 @@ import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.util.Accessor;
 
 /**
- * The extended model interface for the Foo service. Represents a row in the &quot;FOO_Foo&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the Server service. Represents a row in the &quot;Marist_Server&quot; database table, with each column mapped to a property of this class.
  *
  * @author Brian Wing Shun Chan
- * @see FooModel
- * @see marist.service.model.impl.FooImpl
- * @see marist.service.model.impl.FooModelImpl
+ * @see ServerModel
+ * @see marist.service.model.impl.ServerImpl
+ * @see marist.service.model.impl.ServerModelImpl
  * @generated
  */
-@ImplementationClassName("marist.service.model.impl.FooImpl")
+@ImplementationClassName("marist.service.model.impl.ServerImpl")
 @ProviderType
-public interface Foo extends FooModel, PersistedModel {
+public interface Server extends ServerModel, PersistedModel {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to {@link marist.service.model.impl.FooImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to {@link marist.service.model.impl.ServerImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
-	public static final Accessor<Foo, Long> FOO_ID_ACCESSOR = new Accessor<Foo, Long>() {
+	public static final Accessor<Server, Long> SERVER_ID_ACCESSOR = new Accessor<Server, Long>() {
 			@Override
-			public Long get(Foo foo) {
-				return foo.getFooId();
+			public Long get(Server server) {
+				return server.getServerId();
 			}
 
 			@Override
@@ -49,8 +49,8 @@ public interface Foo extends FooModel, PersistedModel {
 			}
 
 			@Override
-			public Class<Foo> getTypeClass() {
-				return Foo.class;
+			public Class<Server> getTypeClass() {
+				return Server.class;
 			}
 		};
 }

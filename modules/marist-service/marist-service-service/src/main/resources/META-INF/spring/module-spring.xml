@@ -7,7 +7,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 >
-	<bean class="marist.service.service.impl.FooLocalServiceImpl" id="marist.service.service.FooLocalService" />
-	<bean class="marist.service.service.impl.FooServiceImpl" id="marist.service.service.FooService" />
-	<bean class="marist.service.service.persistence.impl.FooPersistenceImpl" id="marist.service.service.persistence.FooPersistence" parent="basePersistence" />
+	<bean class="marist.service.service.impl.ServerLocalServiceImpl" id="marist.service.service.ServerLocalService" />
+	<bean class="marist.service.service.impl.ServerServiceImpl" id="marist.service.service.ServerService" />
+	<bean class="marist.service.service.persistence.impl.ServerPersistenceImpl" id="marist.service.service.persistence.ServerPersistence" parent="basePersistence" />
 </beans>

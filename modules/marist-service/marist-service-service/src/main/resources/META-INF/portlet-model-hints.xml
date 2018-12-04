@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="marist.service.model.Foo">
+	<model name="marist.service.model.Server">
 		<field name="uuid" type="String" />
-		<field name="fooId" type="long" />
+		<field name="serverId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
 		<field name="userName" type="String" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
-		<field name="field1" type="String" />
-		<field name="field2" type="boolean" />
-		<field name="field3" type="int" />
-		<field name="field4" type="Date" />
-		<field name="field5" type="String" />
+		<field name="distribution" type="String" />
+		<field name="version" type="String" />
+		<field name="vpn" type="boolean" />
+		<field name="memory" type="int" />
+		<field name="disk" type="int" />
+		<field name="cpu" type="String" />
 	</model>
 </model-hints>

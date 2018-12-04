@@ -22,25 +22,25 @@ import org.osgi.framework.FrameworkUtil;
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
- * Provides the remote service utility for Foo. This utility wraps
- * {@link marist.service.service.impl.FooServiceImpl} and is the
+ * Provides the remote service utility for Server. This utility wraps
+ * {@link marist.service.service.impl.ServerServiceImpl} and is the
  * primary access point for service operations in application layer code running
  * on a remote server. Methods of this service are expected to have security
  * checks based on the propagated JAAS credentials because this service can be
  * accessed remotely.
  *
  * @author Brian Wing Shun Chan
- * @see FooService
- * @see marist.service.service.base.FooServiceBaseImpl
- * @see marist.service.service.impl.FooServiceImpl
+ * @see ServerService
+ * @see marist.service.service.base.ServerServiceBaseImpl
+ * @see marist.service.service.impl.ServerServiceImpl
  * @generated
  */
 @ProviderType
-public class FooServiceUtil {
+public class ServerServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to {@link marist.service.service.impl.FooServiceImpl} and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to {@link marist.service.service.impl.ServerServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -52,17 +52,17 @@ public class FooServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static FooService getService() {
+	public static ServerService getService() {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<FooService, FooService> _serviceTracker;
+	private static ServiceTracker<ServerService, ServerService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(FooService.class);
+		Bundle bundle = FrameworkUtil.getBundle(ServerService.class);
 
-		ServiceTracker<FooService, FooService> serviceTracker = new ServiceTracker<FooService, FooService>(bundle.getBundleContext(),
-				FooService.class, null);
+		ServiceTracker<ServerService, ServerService> serviceTracker = new ServiceTracker<ServerService, ServerService>(bundle.getBundleContext(),
+				ServerService.class, null);
 
 		serviceTracker.open();
 

@@ -11,27 +11,31 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-
-package marist.service.model.impl;
+package marist.service.exception;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.liferay.portal.kernel.exception.NoSuchModelException;
+
 /**
- * The extended model implementation for the Foo service. Represents a row in the &quot;FOO_Foo&quot; database table, with each column mapped to a property of this class.
- *
- * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link marist.service.model.Foo} interface.
- * </p>
- *
  * @author Brian Wing Shun Chan
  */
 @ProviderType
-public class FooImpl extends FooBaseImpl {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a foo model instance should use the {@link marist.service.model.Foo} interface instead.
-	 */
-	public FooImpl() {
+public class NoSuchServerException extends NoSuchModelException {
+
+	public NoSuchServerException() {
 	}
+
+	public NoSuchServerException(String msg) {
+		super(msg);
+	}
+
+	public NoSuchServerException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+	public NoSuchServerException(Throwable cause) {
+		super(cause);
+	}
+
 }
