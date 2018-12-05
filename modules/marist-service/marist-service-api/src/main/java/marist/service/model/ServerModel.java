@@ -211,6 +211,21 @@ public interface ServerModel extends BaseModel<Server>, GroupedModel,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+	 * Returns the name of this server.
+	 *
+	 * @return the name of this server
+	 */
+	@AutoEscape
+	public String getName();
+
+	/**
+	 * Sets the name of this server.
+	 *
+	 * @param name the name of this server
+	 */
+	public void setName(String name);
+
+	/**
 	 * Returns the distribution of this server.
 	 *
 	 * @return the distribution of this server

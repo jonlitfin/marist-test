@@ -42,6 +42,7 @@ public class ServerSoap implements Serializable {
 		soapModel.setUserName(model.getUserName());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+		soapModel.setName(model.getName());
 		soapModel.setDistribution(model.getDistribution());
 		soapModel.setVersion(model.getVersion());
 		soapModel.setVpn(model.isVpn());
@@ -164,6 +165,14 @@ public class ServerSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
+	public String getName() {
+		return _name;
+	}
+
+	public void setName(String name) {
+		_name = name;
+	}
+
 	public String getDistribution() {
 		return _distribution;
 	}
@@ -224,6 +233,7 @@ public class ServerSoap implements Serializable {
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
 	private String _distribution;
 	private String _version;
 	private boolean _vpn;

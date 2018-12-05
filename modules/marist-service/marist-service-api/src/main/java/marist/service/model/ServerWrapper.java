@@ -67,6 +67,7 @@ public class ServerWrapper implements Server, ModelWrapper<Server> {
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
 		attributes.put("distribution", getDistribution());
 		attributes.put("version", getVersion());
 		attributes.put("vpn", isVpn());
@@ -125,6 +126,12 @@ public class ServerWrapper implements Server, ModelWrapper<Server> {
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
 		}
 
 		String distribution = (String)attributes.get("distribution");
@@ -257,6 +264,16 @@ public class ServerWrapper implements Server, ModelWrapper<Server> {
 	@Override
 	public Date getModifiedDate() {
 		return _server.getModifiedDate();
+	}
+
+	/**
+	* Returns the name of this server.
+	*
+	* @return the name of this server
+	*/
+	@Override
+	public String getName() {
+		return _server.getName();
 	}
 
 	/**
@@ -478,6 +495,16 @@ public class ServerWrapper implements Server, ModelWrapper<Server> {
 	@Override
 	public void setModifiedDate(Date modifiedDate) {
 		_server.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	* Sets the name of this server.
+	*
+	* @param name the name of this server
+	*/
+	@Override
+	public void setName(String name) {
+		_server.setName(name);
 	}
 
 	@Override

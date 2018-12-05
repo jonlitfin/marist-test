@@ -81,6 +81,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 			{ "userName", Types.VARCHAR },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
+			{ "name", Types.VARCHAR },
 			{ "distribution", Types.VARCHAR },
 			{ "version", Types.VARCHAR },
 			{ "vpn", Types.BOOLEAN },
@@ -99,6 +100,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("distribution", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("version", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("vpn", Types.BOOLEAN);
@@ -107,7 +109,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		TABLE_COLUMNS_MAP.put("cpu", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table Marist_Server (uuid_ VARCHAR(75) null,serverId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,distribution VARCHAR(75) null,version VARCHAR(75) null,vpn BOOLEAN,memory INTEGER,disk INTEGER,cpu VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table Marist_Server (uuid_ VARCHAR(75) null,serverId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,distribution VARCHAR(75) null,version VARCHAR(75) null,vpn BOOLEAN,memory INTEGER,disk INTEGER,cpu VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table Marist_Server";
 	public static final String ORDER_BY_JPQL = " ORDER BY server.distribution ASC, server.version ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY Marist_Server.distribution ASC, Marist_Server.version ASC";
@@ -152,6 +154,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		model.setUserName(soapModel.getUserName());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
+		model.setName(soapModel.getName());
 		model.setDistribution(soapModel.getDistribution());
 		model.setVersion(soapModel.getVersion());
 		model.setVpn(soapModel.isVpn());
@@ -230,6 +233,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
 		attributes.put("distribution", getDistribution());
 		attributes.put("version", getVersion());
 		attributes.put("vpn", isVpn());
@@ -291,6 +295,12 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
 		}
 
 		String distribution = (String)attributes.get("distribution");
@@ -484,6 +494,22 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 
 	@JSON
 	@Override
+	public String getName() {
+		if (_name == null) {
+			return "";
+		}
+		else {
+			return _name;
+		}
+	}
+
+	@Override
+	public void setName(String name) {
+		_name = name;
+	}
+
+	@JSON
+	@Override
 	public String getDistribution() {
 		if (_distribution == null) {
 			return "";
@@ -648,6 +674,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		serverImpl.setUserName(getUserName());
 		serverImpl.setCreateDate(getCreateDate());
 		serverImpl.setModifiedDate(getModifiedDate());
+		serverImpl.setName(getName());
 		serverImpl.setDistribution(getDistribution());
 		serverImpl.setVersion(getVersion());
 		serverImpl.setVpn(isVpn());
@@ -789,6 +816,14 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 			serverCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+		serverCacheModel.name = getName();
+
+		String name = serverCacheModel.name;
+
+		if ((name != null) && (name.length() == 0)) {
+			serverCacheModel.name = null;
+		}
+
 		serverCacheModel.distribution = getDistribution();
 
 		String distribution = serverCacheModel.distribution;
@@ -824,7 +859,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(29);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -842,6 +877,8 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", name=");
+		sb.append(getName());
 		sb.append(", distribution=");
 		sb.append(getDistribution());
 		sb.append(", version=");
@@ -861,7 +898,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(46);
+		StringBundler sb = new StringBundler(49);
 
 		sb.append("<model><model-name>");
 		sb.append("marist.service.model.Server");
@@ -898,6 +935,10 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 		sb.append(
 			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
 		sb.append(getModifiedDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>name</column-name><column-value><![CDATA[");
+		sb.append(getName());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>distribution</column-name><column-value><![CDATA[");
@@ -947,6 +988,7 @@ public class ServerModelImpl extends BaseModelImpl<Server>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
+	private String _name;
 	private String _distribution;
 	private String _originalDistribution;
 	private String _version;

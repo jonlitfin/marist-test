@@ -7,6 +7,7 @@ create table Marist_Server (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+	name VARCHAR(75) null,
 	distribution VARCHAR(75) null,
 	version VARCHAR(75) null,
 	vpn BOOLEAN,

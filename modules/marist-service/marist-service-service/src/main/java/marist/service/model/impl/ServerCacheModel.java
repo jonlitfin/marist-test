@@ -64,7 +64,7 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(29);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -82,6 +82,8 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", name=");
+		sb.append(name);
 		sb.append(", distribution=");
 		sb.append(distribution);
 		sb.append(", version=");
@@ -136,6 +138,13 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 			serverImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+		if (name == null) {
+			serverImpl.setName("");
+		}
+		else {
+			serverImpl.setName(name);
+		}
+
 		if (distribution == null) {
 			serverImpl.setDistribution("");
 		}
@@ -180,6 +189,7 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		name = objectInput.readUTF();
 		distribution = objectInput.readUTF();
 		version = objectInput.readUTF();
 
@@ -219,6 +229,13 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+		if (name == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(name);
+		}
+
 		if (distribution == null) {
 			objectOutput.writeUTF("");
 		}
@@ -255,6 +272,7 @@ public class ServerCacheModel implements CacheModel<Server>, Externalizable {
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+	public String name;
 	public String distribution;
 	public String version;
 	public boolean vpn;
